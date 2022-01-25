@@ -16,9 +16,16 @@ roots (a,b,c) = (x1, x2) where
 factRec 0 = 1
 factRec n = n * factRec(n-1)
 
+estVide lst = case lst of [] -> True; (_:_) -> False
+
+
+testLst = [5,8,9,4]
+testLst1 = []
+
 main = do 
-   putStrLn "Test the function myIf:"  
-   print(myIf False 4 5)    --calling a function 
-   print(fact(5))
-   print (roots(1,-8,6))
-   print(factRec 5)
+  putStrLn "Test the function myIf:"  
+  print(myIf False 4 5)    --calling a function 
+  print(fact(5))
+  print (roots(1,-8,6))
+  print(factRec 5)
+  print(estVide testLst1)
