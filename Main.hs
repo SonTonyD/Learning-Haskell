@@ -18,9 +18,10 @@ factRec n = n * factRec(n-1)
 
 estVide lst = case lst of [] -> True; (_:_) -> False
 
-
 testLst = [5,8,9,4]
 testLst1 = []
+
+
 
 msg = "aaaabccaaddddd"
 --"aaaabccaaddddd"
@@ -33,7 +34,16 @@ encode (x:xs) =  --take the first element of the list
     ((nb,elem):others) --do this action 
       | x == elem -> (nb+1,x):others  --if same elem -> do this
       | otherwise -> (1,x):res --if other case -> do that
-  
+
+--
+getAt k ls = case ls of 
+  t:q -> case k of 
+    0 -> t
+    _ -> (getAt (k-1) q)
+
+--
+data Entry = DonneEntry {clé::String, author::String, title::String, year::Int}
+livre = DonneEntry "123" "Noe" "Coucou" 1999 
 
 
 main = do 
@@ -44,3 +54,4 @@ main = do
   print(factRec 5)
   print(estVide testLst1)
   print(encode msg)
+  print(getAt 5 "bonjourbonsoir")
